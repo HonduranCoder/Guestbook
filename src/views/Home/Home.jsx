@@ -4,10 +4,10 @@ import { EntryProvider } from '../../context/EntryContext';
 
 const Home = () => {
   return (
-    <EntryProvider>
+    <>
       <GuestBook />
       <EntryList />
-    </EntryProvider>
+    </>
   );
 };
 

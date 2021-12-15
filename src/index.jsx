@@ -5,9 +5,11 @@ import { UserProvider } from './context/UserContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserProvider>
-      <App />
-    </UserProvider>
+    <EntryProvider>
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </EntryProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
