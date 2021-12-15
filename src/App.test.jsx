@@ -5,9 +5,11 @@ import App from './App.jsx';
 
 it('should render App', () => {
   const { container } = render(
-    <UserProvider>
-      <App />
-    </UserProvider>
+    <React.StrictMode>
+      <UserProvider>
+        <App />
+      </UserProvider>
+    </React.StrictMode>
   );
   expect(container).toMatchSnapshot();
 });
