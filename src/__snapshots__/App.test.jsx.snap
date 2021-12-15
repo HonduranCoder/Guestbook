@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render App 1`] = `
+<div>
+  <div>
+    <header>
+      <p>
+        Sign in
+      </p>
+    </header>
+    <main>
+      <h1>
+        Please Sign the Guestbook!
+      </h1>
+      <form>
+        <div>
+          <div>
+            <label>
+              Guest Name
+            </label>
+          </div>
+          <div
+            class="md:w-2/3"
+          >
+            <input
+              id="guestName"
+              placeholder="Guest Name"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <label>
+          Guest Entry
+        </label>
+        <div>
+          <textarea
+            id="newEntry"
+            placeholder="Your Entry!"
+          />
+        </div>
+        <div>
+          <button>
+            Sign
+          </button>
+          
+        </div>
+      </form>
+      <div>
+        <ul />
+      </div>
+    </main>
+  </div>
+</div>
+`;
