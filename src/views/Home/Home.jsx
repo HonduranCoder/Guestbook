@@ -1,5 +1,5 @@
 import EntryList from '../../components/EntryList/EntryList';
-import GuestBook from '../../components/GuestBook/GuestBook';
+import GuestBook from '../../components/Guestbook/Guestbook';
 
 const Home = () => {
   return (
