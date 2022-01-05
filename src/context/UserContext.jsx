@@ -4,7 +4,7 @@ import { useContext, createContext, useState } from 'react';
 const UserContext = createContext();
 // create a user provider that takes in the children
 // create text
-// use the user providrt context
+// use the user provider context
 const UserProvider = ({ children }) => {
   const [user, setUser] = useState('');
   return (

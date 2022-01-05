@@ -1,17 +1,22 @@
 import React from 'react';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useEntries } from '../../context/EntryContext';
-import { useUser } from '../../context/UserContext';
+//import { useUser } from '../../context/UserContext';
+import { useAuth } from '../../hooks/useAuth.js';
 //form
 export default function Guestbook() {
-  const [name, setName] = useState('');
+  //const [name, setName] = useState('');
   const [newEntry, setNewEntry] = useState('');
   const { entries, setEntries } = useEntries();
-  const { user, setUser } = useUser();
-
+  //const { user, setUser } = useUser();
+  const { logout, user } = useAuth();
+  const history = useHistory();
+  //useAuth
+  //let auth = useAuth
+  const name = user;
   function guestName() {
     if (!newEntry) return;
-    setUser(name);
     setEntries([...entries, { name, message: newEntry }]);
     setNewEntry('');
   }
@@ -21,19 +26,14 @@ export default function Guestbook() {
     guestName();
   };
 
+  const handleLogout = () => {
+    logout(() => history.push('/login'));
+  };
+
   const guestNameInput = (
     <div>
       <div>
-        <label>Guest Name</label>
-      </div>
-      <div className="md:w-2/3">
-        <input
-          id="guestName"
-          type="text"
-          placeholder="Guest Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        <label>{name}</label>
       </div>
     </div>
   );
@@ -58,19 +58,16 @@ export default function Guestbook() {
         </div>
         <div>
           <button>Sign</button>
-          {user && (
-            <button
-              type="button"
-              onClick={() => {
-                setUser('');
-                setName('');
-              }}
-            >
-              Not {user} ?
-            </button>
-          )}
         </div>
       </form>
+      <button
+        type="button"
+        onClick={() => {
+          handleLogout();
+        }}
+      >
+        Not {user} ?
+      </button>
     </>
   );
 }
